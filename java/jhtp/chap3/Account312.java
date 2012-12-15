@@ -11,6 +11,14 @@ public class Account312 {
 		balance = balance + amt;
 	}
 
+	public void debit(double amt) {
+		if (balance >= amt) {
+			balance = balance - amt;
+		}
+		else {
+			System.out.println("Debit amount exceeded account balance.");
+		}
+	}
 	public double getBalance() {
 		return balance;
 	}
