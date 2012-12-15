@@ -1,0 +1,19 @@
+<%@ page language="java" import="java.sql.*"%>
+<jsp:useBean id="dbConn" scope="request" class="com.db.DBConnection"/>
+<%
+    Connection conn=dbConn.getDBConnection();
+    Statement stmt = conn.createStatement();
+    ResultSet rs = stmt.executeQuery("select * from tableName");
+%>
+<html>
+<head>
+<title>JavaBean java database connectivity</title>
+</head>
+<body>
+
+</body>
+</html>
+<%
+  if(conn!=null)
+    conn.close();
+%>
