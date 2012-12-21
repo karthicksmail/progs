@@ -22,10 +22,11 @@ public class Date {
 	/**
 	 * The default constructor
 	 * Have made this private because a date object should not be initialized without proper values.
-	 * Do I need this really when I have a parameterized constructor? No! But doing this for practise.
 	 */
 	private Date() {
-		day = month = year = 0;
+		day = 1;
+		month = 1;
+		year = 1971;
 	}
 
 	/**
@@ -93,6 +94,56 @@ public class Date {
 	 */
 	public void displayDate() {
 		System.out.printf("%d/%d/%d", day, month, year);
+	}
+
+	/**
+	 * Method to convert the number of days into milli seconds
+	 * @private
+	 * @param numOfDays The count of the days to be converted into milli-seconds
+	 * @return The count in milli-seconds
+	 */
+	private long convertDaysIntoMilliSecs(int numOfDays) {
+		//day difference in milli seconds = daydiff * number of hours per day * number of seconds per hour * number of milli secs in a second
+		return (numOfDays * 24 * 3600 * 1000);
+	}
+
+	/**
+	 * Method to calculate the number of days since Epoch (1/1/1971)
+	 * @return number of days
+	 */
+	public int calcDaysSinceEpoch() {
+		int  yearDiff = year - 1970;
+		int  monthDiff = month - 1;
+		int  dayDiff = day - 1;
+
+		// We are doing an assumption of 30 days per month. However, every year we lose around 5.25 days. We make up for this by calculating the number of milli seconds for 5 days every year and adding it over here.
+		int daysSinceEpoch = dayDiff + monthDiff * 30 + yearDiff * 12 * 30 + (yearDiff * 21) / 4;
+		return daysSinceEpoch;
+	}
+
+	/**
+	 * Method to calculate the milli-seconds since Epoch (1/1/1971)
+	 * @return number of milli seconds
+	 */
+	public long calcMilliSecsSinceEpoch() {
+		int daysSinceEpoch = calcDaysSinceEpoch();
+
+		long milliSecSinceEpoch = convertDaysIntoMilliSecs(daysSinceEpoch);
+
+		return milliSecSinceEpoch;
+	}
+
+	/**
+	 * Method to calculate the difference between current date and specified date in days
+	 */
+	public long dateDiff(Date olderDate) {
+	// Convert the date given in the object into number of days
+	// Convert the date given as the parameter into number of days
+	// Find Difference between number of days
+	// Convert difference into years, months and remaining days
+		int objDaysCount = calcDaysSinceEpoch();
+		int argDaysCount = olderDate.calcDaysSinceEpoch();
+		return (objDaysCount - argDaysCount);
 	}
 }
 

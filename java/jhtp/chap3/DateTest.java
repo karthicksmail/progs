@@ -20,5 +20,25 @@ public class DateTest {
 		System.out.println();
 
 		System.out.printf("d2 is %d/%d/%d\n", d2.getDay(), d2.getMonth(), d2.getYear());
+
+		//Test for calcMilliSecSinceEpoch()
+		Date d3 = new Date(25, 3, 1971);
+		d3.displayDate();
+		System.out.printf(" is %d days since epoch\n", d3.calcDaysSinceEpoch());
+		d3.displayDate();
+		System.out.printf(" is %d milliseconds since epoch\n", d3.calcMilliSecsSinceEpoch());
+
+		int numOfDays = d3.calcDaysSinceEpoch();
+		Date d4 = d3.convertDaysCountToDate(numOfDays);
+		d4.displayDate();
+		System.out.println();
+
+		Date d6 = new Date(20, 12, 2012);
+		long count = d6.dateDiff(d3);
+		d6.displayDate();
+		System.out.printf(" is %d days since ", count);
+		d3.displayDate();
+		System.out.println();
 	}
 }
+
