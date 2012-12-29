@@ -52,7 +52,7 @@ public class HeartRates {
 	 * Calculate Age. Uses Date of Birth to calculate the age.
 	 * @return Age in years
 	 */
-	private int calcAge() {
+	public int calcAge() {
 		Calendar calToday = Calendar.getInstance();
 		Date today = new Date(calToday.get(Calendar.DATE), calToday.get(Calendar.MONTH), calToday.get(Calendar.YEAR));
 		long diff = today.dateDiff(dateOfBirth);

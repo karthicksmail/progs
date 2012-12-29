@@ -28,11 +28,6 @@ public class DateTest {
 		d3.displayDate();
 		System.out.printf(" is %d milliseconds since epoch\n", d3.calcMilliSecsSinceEpoch());
 
-		int numOfDays = d3.calcDaysSinceEpoch();
-		Date d4 = d3.convertDaysCountToDate(numOfDays);
-		d4.displayDate();
-		System.out.println();
-
 		Date d6 = new Date(20, 12, 2012);
 		long count = d6.dateDiff(d3);
 		d6.displayDate();
