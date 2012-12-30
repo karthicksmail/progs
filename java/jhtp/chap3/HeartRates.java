@@ -82,12 +82,5 @@ public class HeartRates {
 
 		return new Date(days, month, year);
 	}
-
-	public static void main(String[] args) {
-		Date dob = new Date(25, 9, 1984);
-		HeartRates hr = new HeartRates("Soumiyashri", "Swaminathan", dob);
-		int targHeartRate = hr.calcTargetHeartRate(100);
-		System.out.printf("The Target Heart Rate for %s %s is %d\n", hr.getFirstName(), hr.getLastName(), targHeartRate);
-	}
 }
 
