@@ -142,7 +142,11 @@ class HealthProfile {
 	 * Calculate and return the BMI of the person
 	 */
 	public double calcBMI() {
-		return weight / (height * height);
+		if (height == 0) {
+			return -1.0;
+		} else {
+			return weight / (height * height);
+		}
 	}
 
 	public void displayInfo() {
@@ -156,7 +160,12 @@ class HealthProfile {
 		System.out.printf("Age: %d\n", hr.calcAge());
 		System.out.printf("Height: %.2f\n", height);
 		System.out.printf("Weight: %.2f\n", weight);
-		System.out.printf("BMI: %.2f\n", calcBMI());
+		double bmi = calcBMI();
+		if (bmi == -1.0) {
+			System.out.println("BMI cannot be calculated due to wrong value for height");
+		} else {
+			System.out.printf("BMI: %.2f\n", calcBMI());
+		}
 		System.out.println();
 		System.out.printf("BMI VALUES\n");
 		System.out.printf("Underweight: less than 18.5\n");
