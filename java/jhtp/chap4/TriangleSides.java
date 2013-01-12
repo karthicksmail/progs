@@ -9,8 +9,10 @@ public class TriangleSides {
 		s1 = input.nextInt();
 		s2 = input.nextInt();
 		s3 = input.nextInt();
-		
-		if ( ((s1 + s2) > s3) && ((s2 + s3) > s1) && ((s3 + s1) > s2) ) {
+
+		if ((s1 <= 0) || (s2 <= 0) || (s3 <= 0)) {
+			System.out.println("The numbers should be positive.");
+		} else if ( ((s1 + s2) > s3) && ((s2 + s3) > s1) && ((s3 + s1) > s2) ) {
 			System.out.println("These three lengths make a triangle");
 		} else {
 			System.out.println("These three lengths do not make a triangle");
