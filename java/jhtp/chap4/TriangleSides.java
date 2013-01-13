@@ -1,3 +1,8 @@
+/**
+ * Problem Statement:
+ * (Sides of a Triangle)
+ * Write an application that reads three nonzero values entered by the user and determines and prints whether they could represent the sides of a triangle.
+ */
 import java.util.Scanner;
 
 public class TriangleSides {

@@ -1,3 +1,7 @@
+/**
+ * Problem Statement:
+ * (Sides of a Right Triangle) Write an application that reads three nonzero integers and determines and prints whether they could represent the sides of a right triangle.
+ */
 import java.util.Scanner;
 
 public class RightTriangleSides {
