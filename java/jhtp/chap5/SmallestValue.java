@@ -26,7 +26,11 @@ public class SmallestValue {
 			}
 		}
 
-		System.out.printf("The smallest number is: %d\n", small);
+		if (numOfVals > 0) {
+			System.out.printf("The smallest number is: %d\n", small);
+		} else {
+			System.out.println("The number of values is not a positive number.");
+		}
 	}
 }
 
