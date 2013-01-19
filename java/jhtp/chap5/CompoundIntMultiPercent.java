@@ -1,7 +1,14 @@
+import java.util.Scanner;
+
 public class CompoundIntMultiPercent {
 	public static void main( String[] args ) {
 		double amount;
-		double principal = 1000.0;
+		double principal;
+
+		Scanner input = new Scanner(System.in);
+
+		System.out.print("Enter the principal amount: ");
+		principal = input.nextDouble();
 		// Print headline and start the formatting for the table
 		System.out.printf("Tabular column for Amount on Deposit for a principal of %.2f\n        ", principal);
 
@@ -12,7 +19,7 @@ public class CompoundIntMultiPercent {
 		System.out.println();
 
 		// Loop through and print the values
-		for (double rate = 0.05; rate < 0.11; rate+=0.01) {
+		for (double rate = 0.05; rate < 0.10; rate+=0.01) {
 			//Print the rate for the row
 			System.out.printf("%8.2f", rate);
 			for (int year = 1; year <= 10; year++) {                                                    
