@@ -1,7 +1,10 @@
 //(Parking Charges) A parking garage charges a $2.00 minimum fee to park for up to three hours. The garage charges an additional $0.50 per hour for each hour or part thereof in excess of three hours. The maximum charge for any given 24-hour period is $10.00. Assume that no car parks for longer than 24 hours at a time. Write an application that calculates and displays the parking charges for each customer who parked in the garage yesterday. You should enter the hours parked for each customer. The program should display the charge for the current customer and should calculate and display the running total of yesterday’s receipts. It should use the method calculateCharges to determine the charge for each customer.
 
+import java.util.Scanner;
+
 public class ParkingCharges {
 	private double numOfHours;
+	private double dayTotal;
 	public double calculateCharges() {
 		double charges = 0.0;
 		if (numOfHours <= 0.0) {
@@ -15,6 +18,7 @@ public class ParkingCharges {
 		if (charges > 10.0) {
 			charges = 10.0;
 		}
+		dayTotal += charges;
 		return charges;
 	}
 
@@ -25,9 +29,14 @@ public class ParkingCharges {
 		this.numOfHours = numOfHours;
 	}
 
+	public double getDayTotal() {
+		return dayTotal;
+	}
+
 	public static void main(String[] args) {
 		ParkingCharges pc = new ParkingCharges();
 		// Instead of using Scanner to input the values, I used this method since I can cover all possibilities.
+		/*
 		pc.setHours(-0.5);
 		System.out.println("The parking charges for -0.5 hours is " + pc.calculateCharges());
 		pc.setHours(0.0);
@@ -42,5 +51,16 @@ public class ParkingCharges {
 		System.out.println("The parking charges for 19.5 hours is " + pc.calculateCharges());
 		pc.setHours(20.0);
 		System.out.println("The parking charges for 20.0 hours is " + pc.calculateCharges());
+		*/
+
+		Scanner input = new Scanner(System.in);
+		double numOfHours = 0.0;
+		do {
+			System.out.print ("Enter the day's charges: ");
+			numOfHours = input.nextDouble();
+			pc.setHours(numOfHours);
+			System.out.println("The changes for parking for " + numOfHours + " is " + pc.calculateCharges());
+		} while (numOfHours > 0.0);
+		System.out.println("The day's total was " + pc.getDayTotal());
 	}
 }
