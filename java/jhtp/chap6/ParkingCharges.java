@@ -59,7 +59,10 @@ public class ParkingCharges {
 			System.out.print ("Enter the day's charges: ");
 			numOfHours = input.nextDouble();
 			pc.setHours(numOfHours);
-			System.out.println("The changes for parking for " + numOfHours + " is " + pc.calculateCharges());
+			if (numOfHours == 0.0) {
+				break;
+			}
+			System.out.println("The changes for parking for " + numOfHours + " hours is " + pc.calculateCharges());
 		} while (numOfHours > 0.0);
 		System.out.println("The day's total was " + pc.getDayTotal());
 	}
