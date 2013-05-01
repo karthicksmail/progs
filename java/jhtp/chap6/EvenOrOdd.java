@@ -7,11 +7,16 @@ import java.util.Scanner;
 public class EvenOrOdd {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
+		char ch = 'N';
 
-		System.out.print("Enter the number: ");
-		int num = input.nextInt();
-
-		System.out.println("The number " + num + " is " + ((isEven(num) == true)?"even":"odd") + ".");
+		do{
+			System.out.print("Enter the number: ");
+			int num = input.nextInt();
+	
+			System.out.println("The number " + num + " is " + ((isEven(num) == true)?"even":"odd") + ".");
+			System.out.print("Do you want to continue? (Y/N/y/n)");
+			ch = input.next().toLowerCase().charAt(0);
+		} while ((ch == 'y'));
 	}
 
 	public static boolean isEven(int num) {
