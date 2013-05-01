@@ -11,7 +11,7 @@ public class SquareOfAnyChar {
 		int size = input.nextInt();
 
 		System.out.print("Enter the character to be printed: ");
-		char ch = input.next().toLowerCase().charAt(0);
+		char ch = input.next().charAt(0);
 
 		squareOfAnyChars(size, ch);
 	}
