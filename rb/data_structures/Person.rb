@@ -7,6 +7,14 @@ class Person
 		@name = name
 		@age = age
 	end
+
+	def show
+		print @name + " " + @age.to_s + "\n\t->"
+	end
+
+	def ==(other_object)
+		(self.name == other_object.name) && (self.age == other_object.age)
+	end
 end
 
 #n1 = Person.new
